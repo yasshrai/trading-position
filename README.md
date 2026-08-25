@@ -133,11 +133,14 @@ paths or ports.
 
 **Terminal 1 — start the Position Maintaining Service:**
 ```bash
+source .venv/bin/activate
 uv run python -m position_service.main --host 0.0.0.0 --port 8001
 ```
 
 **Terminal 2 — start the Order Update Service, pointing at Terminal 1's address:**
 ```bash
+
+source .venv/bin/activate
 uv run python -m order_service.main \
   --csv-path order_updates.csv \
   --target-url http://localhost:8001/events \
